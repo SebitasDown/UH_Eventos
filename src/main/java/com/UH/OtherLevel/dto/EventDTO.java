@@ -14,11 +14,14 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class EventDTO {
 
+    Long id;
+
     @Schema(
             description = "Nombre oficial del evento",
             example = "Concierto de Temporada"
     )
     @NotBlank(message = "El nombre no puede estar vacio")
+    @NotNull
     private String name;
 
     @Schema(

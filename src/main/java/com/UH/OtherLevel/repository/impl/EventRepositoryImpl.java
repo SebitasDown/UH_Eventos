@@ -1,6 +1,7 @@
 package com.UH.OtherLevel.repository.impl;
 
 import com.UH.OtherLevel.entities.EventEntity;
+import com.UH.OtherLevel.exceptions.BusinessException;
 import com.UH.OtherLevel.mapper.EventEntityMapper;
 import com.UH.OtherLevel.mapper.EventMapper;
 import com.UH.OtherLevel.model.Event;
@@ -8,6 +9,8 @@ import com.UH.OtherLevel.repository.interfaces.EventRepository;
 import com.UH.OtherLevel.repository.jpa.JpaEventRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -29,6 +32,12 @@ public class EventRepositoryImpl implements EventRepository {
     }
 
     @Override
+    public Page<Event> findAll(int page, int size) {
+        Page<EventEntity> eventEntityPage = eventRepository.findAll(PageRequest.of(page, size));
+        return eventEntityPage.map(EventEntityMapper.INSTANCE::toModel);
+    }
+
+    @Override
     public Optional<Event> findById(Long id) {
         return eventRepository.findById(id)
                 .map(EventEntityMapper.INSTANCE::toModel);
@@ -36,6 +45,9 @@ public class EventRepositoryImpl implements EventRepository {
 
     @Override
     public Event save(Event event) {
+        if (eventRepository.existsByName(event.getName())) {
+            throw new BusinessException("CONFLICT", "Ya existe un evento con ese nombre");
+        }
         EventEntity eventEntity = EventEntityMapper.INSTANCE.toEntity(event);
         EventEntity saved = eventRepository.save(eventEntity);
         return EventEntityMapper.INSTANCE.toModel(saved);

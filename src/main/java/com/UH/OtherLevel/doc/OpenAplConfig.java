@@ -13,7 +13,7 @@ public class OpenAplConfig {
     public OpenAPI customOpenAPI(){
         return new OpenAPI()
                 .info(new Info()
-                        .title("API de Ejemplo con Sringdoc")
+                        .title("API SpringDoc")
                         .version("1.0.0")
                         .description("Documentacion automática generada por Springdoc OpenAPI")
                         .contact(new Contact()

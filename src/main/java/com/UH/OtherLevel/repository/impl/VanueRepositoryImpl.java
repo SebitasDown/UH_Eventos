@@ -1,11 +1,13 @@
 package com.UH.OtherLevel.repository.impl;
 
 import com.UH.OtherLevel.entities.VenueEntity;
+import com.UH.OtherLevel.exceptions.BusinessException;
 import com.UH.OtherLevel.mapper.EventEntityMapper;
 import com.UH.OtherLevel.mapper.VenueEntityMapper;
 import com.UH.OtherLevel.model.Venue;
 import com.UH.OtherLevel.repository.interfaces.VenueRepository;
 import com.UH.OtherLevel.repository.jpa.JpaVenueRepository;
+import com.sun.jdi.request.DuplicateRequestException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -37,8 +39,14 @@ public class VanueRepositoryImpl implements VenueRepository {
 
     @Override
     public Venue save(Venue venue) {
-        VenueEntity entity = VenueEntityMapper.INSTANCE.toEntity(venue);
+        if (venue.getName() == null || venue.getName().trim().isEmpty()) {
+            throw new BusinessException("BAD_REQUEST", "El nombre del venue no puede estar vacío");
+        }
 
+        if (vanueRepository.existsByName(venue.getName())) {
+            throw new BusinessException("CONFLICT", "Ya existe un venue con ese nombre");
+        }
+        VenueEntity entity = VenueEntityMapper.INSTANCE.toEntity(venue);
         VenueEntity saved = vanueRepository.save(entity);
 
         return VenueEntityMapper.INSTANCE.toDomain(saved);
@@ -57,7 +65,10 @@ public class VanueRepositoryImpl implements VenueRepository {
     @Override
     public Venue update(Venue venue) {
         if (venue.getId() == null){
-            throw new IllegalArgumentException("NOT NULL");
+            throw new BusinessException("BAD_REQUEST","NOT NULL");
+        }
+        if (vanueRepository.existsByName(venue.getName())) {
+            throw new BusinessException("CONFLICT", "Ya existe un venue con ese nombre");
         }
 
         VenueEntity entity = VenueEntityMapper.INSTANCE.toEntity(venue);
