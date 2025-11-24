@@ -1,8 +1,11 @@
 package com.UH.OtherLevel.infrastructure.adapter.in.web.mapper;
 
-import com.UH.OtherLevel.dto.EventDTO;
+
 import com.UH.OtherLevel.domain.model.Event;
 import com.UH.OtherLevel.domain.model.Venue;
+import com.UH.OtherLevel.infrastructure.adapter.in.web.dto.request.event.CreateEventRequest;
+import com.UH.OtherLevel.infrastructure.adapter.in.web.dto.request.event.UpdateEventRequest;
+import com.UH.OtherLevel.infrastructure.adapter.in.web.dto.response.event.EventResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
@@ -10,20 +13,24 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface EventMapper {
 
-    EventMapper INSTANCE = Mappers.getMapper(EventMapper.class);
 
-    @Mapping(target = "venueId", source = "venue.id")
-    EventDTO toDTO(Event event);
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "venue", source = "venueId", qualifiedByName = "idToVenue")
+    Event toModel(CreateEventRequest request);
 
     @Mapping(target = "venue", source = "venueId", qualifiedByName = "idToVenue")
-    Event toModel(EventDTO dto);
+    Event toUpdateModel(UpdateEventRequest request);
 
-    List<EventDTO> toDTOList(List<Event> events);
+    // Model Response
 
-    List<Event> toModelList(List<EventDTO> dtos);
+    @Mapping(target = "venueId", source = "venue.id")
+    EventResponse toResponse(Event event);
+
+    List<EventResponse> toResponseList(List<Event> events);
+
 
     @Named("idToVenue")
     default Venue idToVenue(Long id) {

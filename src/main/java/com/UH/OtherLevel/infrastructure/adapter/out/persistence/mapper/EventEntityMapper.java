@@ -1,11 +1,9 @@
 package com.UH.OtherLevel.infrastructure.adapter.out.persistence.mapper;
 
-
 import com.UH.OtherLevel.domain.model.Event;
 import com.UH.OtherLevel.infrastructure.adapter.out.persistence.entity.EventEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
@@ -16,10 +14,11 @@ import java.util.List;
 public interface EventEntityMapper {
 
 
-    @Mapping(target = "venueEntity", source = "venue")
+    @Mapping(target = "venue", source = "venue")
     EventEntity toEntity(Event event);
 
-    @Mapping(target = "venue", source = "venueEntity")
+
+    @Mapping(target = "venue", source = "venue")
     Event toModel(EventEntity entity);
 
     List<EventEntity> toEntityList(List<Event> events);

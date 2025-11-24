@@ -1,20 +1,29 @@
 package com.UH.OtherLevel.infrastructure.adapter.in.web.mapper;
 
-import com.UH.OtherLevel.dto.VenueDTO;
+
 import com.UH.OtherLevel.domain.model.Venue;
+import com.UH.OtherLevel.infrastructure.adapter.in.web.dto.request.event.CreateEventRequest;
+import com.UH.OtherLevel.infrastructure.adapter.in.web.dto.request.venue.CreateVenueRequest;
+import com.UH.OtherLevel.infrastructure.adapter.in.web.dto.request.venue.UpdateVenueRequest;
+import com.UH.OtherLevel.infrastructure.adapter.in.web.dto.response.venue.VenueResponse;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface VanueMapper {
-    VanueMapper INSTANCE = Mappers.getMapper(VanueMapper.class);
 
-    VenueDTO toDTO(Venue venue);
-    Venue toModel(VenueDTO dto);
+    // Response
+    VenueResponse toResponse(Venue venue);
+    List<VenueResponse> toResponseList(List<Venue> venues);
 
-    List<VenueDTO> toDTOList(List<Venue> venues);
-    List<Venue> toModelList(List<VenueDTO> dtos);
+    // Request
+    @Mapping(target = "id", ignore = true)
+    Venue toModel(CreateVenueRequest request);
+
+
+    Venue toUpdateModel(UpdateVenueRequest request);
 }
 

@@ -4,7 +4,9 @@ import com.UH.OtherLevel.domain.model.Venue;
 import com.UH.OtherLevel.application.port.in.venueIn.CreateVenueUseCase;
 import com.UH.OtherLevel.application.port.out.VenueRepositoryPort;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
 @RequiredArgsConstructor
 public class CreateVenueService implements CreateVenueUseCase {
     private final VenueRepositoryPort venueRepositoryPort;
