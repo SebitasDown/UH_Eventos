@@ -29,4 +29,16 @@ public class VenueEntity {
             orphanRemoval = true
     )
     private List<EventEntity> events;
+
+
+    //Helpers
+    public void addEvent(EventEntity event){
+        events.add(event);
+        event.setVenue(this);
+    }
+
+    public void removeEvent(EventEntity event){
+        events.remove(event);
+        event.setVenue(null);
+    }
 }
