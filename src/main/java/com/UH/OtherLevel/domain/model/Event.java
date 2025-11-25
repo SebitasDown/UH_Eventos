@@ -19,9 +19,7 @@ public class Event {
 
     public Event(Long id, String name, String description, LocalDateTime date, Venue venue) {
 
-        if (date.isBefore(LocalDateTime.now())){
-            throw new InvalidEventDateException();
-        }
+
 
         this.id = id;
         this.name = name;
@@ -52,9 +50,7 @@ public class Event {
     }
 
     public void setDate(LocalDateTime date) {
-        if (date.isBefore(LocalDateTime.now())){
-            throw new InvalidEventDateException();
-        }
+
         this.date = date;
     }
 
