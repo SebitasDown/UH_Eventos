@@ -18,22 +18,29 @@ public class UpdateEventService implements UpdateEventUseCase {
 
 
     @Override
-    public Event update(Event event) {
+    public Event update(Long id, Event event) {
+
+
+        Event exist = eventRepositoryPort.findById(id)
+                .orElseThrow(() -> new EventNotFoundException(id));
+
+
         if (event.getDate() == null ||
-            event.getName() == null ||
-            event.getName().trim().isEmpty() ||
-            event.getVenue() == null){
-            throw new IllegalArgumentException("Los capos no pueden estar vacios");
+                event.getName() == null ||
+                event.getName().trim().isEmpty() ||
+                event.getVenue() == null){
+            throw new IllegalArgumentException("Los campos no pueden estar vacíos");
         }
 
-        Event exist = eventRepositoryPort.findById(event.getId())
-                .orElseThrow(() -> new EventNotFoundException(event.getId()));
+
         Long venueId = event.getVenue().getId();
         Venue venue = venueRepositoryPort.findById(venueId)
                 .orElseThrow(() -> new VenueNotFoundException(venueId));
 
+
         exist.setName(event.getName());
         exist.setDate(event.getDate());
+        exist.setDescription(event.getDescription());
         exist.setVenue(venue);
 
         return eventRepositoryPort.save(exist);

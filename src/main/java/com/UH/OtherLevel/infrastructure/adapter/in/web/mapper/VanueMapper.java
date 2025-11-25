@@ -19,11 +19,12 @@ public interface VanueMapper {
     VenueResponse toResponse(Venue venue);
     List<VenueResponse> toResponseList(List<Venue> venues);
 
-    // Request
+    // CREATE — nunca se pasa el ID
     @Mapping(target = "id", ignore = true)
     Venue toModel(CreateVenueRequest request);
 
-
+    // UPDATE — aquí sí
+    @Mapping(target = "id", source = "id")
     Venue toUpdateModel(UpdateVenueRequest request);
 }
 

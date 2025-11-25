@@ -49,7 +49,7 @@ public class EventController {
             @PathVariable Long id,
             @RequestBody UpdateEventRequest request
             ){
-        Event updated = updateEventUseCase.update(eventMapper.toUpdateModel(request));
+        Event updated = updateEventUseCase.update(id ,eventMapper.toUpdateModel(request));
         return ResponseEntity.ok(eventMapper.toResponse(updated));
     }
 

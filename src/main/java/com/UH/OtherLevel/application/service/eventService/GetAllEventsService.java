@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class GetAllEventsService implements GetAllEventsUseCase {
-   private EventRepositoryPort eventRepositoryPort;
+   private final EventRepositoryPort eventRepositoryPort;
 
     @Override
     public List<Event> getEventAll() {

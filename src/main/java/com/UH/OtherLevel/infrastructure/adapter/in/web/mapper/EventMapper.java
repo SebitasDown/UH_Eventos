@@ -16,15 +16,12 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface EventMapper {
 
-
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "venue", source = "venueId", qualifiedByName = "idToVenue")
     Event toModel(CreateEventRequest request);
 
     @Mapping(target = "venue", source = "venueId", qualifiedByName = "idToVenue")
     Event toUpdateModel(UpdateEventRequest request);
-
-    // Model Response
 
     @Mapping(target = "venueId", source = "venue.id")
     EventResponse toResponse(Event event);
@@ -35,8 +32,11 @@ public interface EventMapper {
     @Named("idToVenue")
     default Venue idToVenue(Long id) {
         if (id == null) return null;
-        Venue v = new Venue();
-        v.setId(id);
-        return v;
+
+
+        Venue venue = new Venue();
+        venue.setId(id);
+
+        return venue;
     }
 }

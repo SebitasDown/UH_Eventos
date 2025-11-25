@@ -19,6 +19,8 @@ public class EventEntity {
 
     private String name;
 
+    private String description;
+
     private LocalDateTime date;
 
     @ManyToOne

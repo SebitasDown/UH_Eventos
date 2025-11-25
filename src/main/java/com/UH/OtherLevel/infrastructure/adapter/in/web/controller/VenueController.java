@@ -52,4 +52,15 @@ public class VenueController {
         Venue updated = updateVenueService.update(id, venueToUpdate); // pasa id y modelo
         return ResponseEntity.ok(vanueMapper.toResponse(updated));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        boolean deleted = deleteVenueService.deleteById(id);
+
+        if (!deleted) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.noContent().build();
+    }
 }

@@ -17,11 +17,12 @@ public class CreateEventService implements CreateEventUseCase {
 
     @Override
     public Event createEvent(Event event) {
-        if (event.getVenue() == null || event.getName().isBlank()){
-            throw new IllegalArgumentException("El ID del venue no puede ser null");
-        }
+
         if (event.getName() == null || event.getName().isBlank()){
             throw new IllegalArgumentException("El nombre no puede estar vacio");
+        }
+        if (event.getVenue().getId() == null || event.getName().isBlank()){
+            throw new IllegalArgumentException("El ID del venue no puede ser null");
         }
 
         Long venueId = event.getVenue().getId();

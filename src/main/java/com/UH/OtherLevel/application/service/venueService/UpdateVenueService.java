@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class UpdateVenueService implements UpdateVenueUseCase {
-    private VenueRepositoryPort venueRepositoryPort;
+    private final VenueRepositoryPort venueRepositoryPort;
 
     @Override
     public Venue update(Long id, Venue venue) {

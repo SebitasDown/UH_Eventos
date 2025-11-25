@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class GetAllVenueService implements GetAllVenueUseCase {
-   private VenueRepositoryPort venueRepositoryPort;
+   private final VenueRepositoryPort venueRepositoryPort;
     @Override
     public List<Venue> getAll() {
         return venueRepositoryPort.findAll();

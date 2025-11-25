@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-11-24T09:43:19-0500",
-    comments = "version: 1.6.0, compiler: javac, environment: Java 21.0.9 (Microsoft)"
+    date = "2025-11-24T19:51:39-0500",
+    comments = "version: 1.6.0, compiler: javac, environment: Java 21.0.8 (Microsoft)"
 )
 @Component
 public class VanueMapperImpl implements VanueMapper {
@@ -55,6 +55,10 @@ public class VanueMapperImpl implements VanueMapper {
 
         Venue venue = new Venue();
 
+        venue.setName( request.getName() );
+        venue.setCapacity( request.getCapacity() );
+        venue.setAddress( request.getAddress() );
+
         return venue;
     }
 
@@ -65,6 +69,11 @@ public class VanueMapperImpl implements VanueMapper {
         }
 
         Venue venue = new Venue();
+
+        venue.setId( request.getId() );
+        venue.setName( request.getName() );
+        venue.setCapacity( request.getCapacity() );
+        venue.setAddress( request.getAddress() );
 
         return venue;
     }

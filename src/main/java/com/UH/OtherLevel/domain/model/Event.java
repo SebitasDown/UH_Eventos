@@ -10,13 +10,14 @@ import java.time.LocalDateTime;
 public class Event {
     private Long id;
     private String name;
+    private String description;
     private LocalDateTime date;
     private Venue venue;
 
     public Event() {
     }
 
-    public Event(Long id, String name, LocalDateTime date, Venue venue) {
+    public Event(Long id, String name, String description, LocalDateTime date, Venue venue) {
 
         if (date.isBefore(LocalDateTime.now())){
             throw new InvalidEventDateException();
@@ -24,12 +25,18 @@ public class Event {
 
         this.id = id;
         this.name = name;
+        this.description = description;
         this.date = date;
         this.venue = venue;
 
-        if (venue != null && venue.getCapacity() < 10){
-            throw new VanueCapacityExceededException(venue.getCapacity());
-        }
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Long getId() {
@@ -64,9 +71,6 @@ public class Event {
     }
 
     public void setVenue(Venue venue) {
-        if (venue != null && venue.getCapacity() < 10){
-            throw new VanueCapacityExceededException(venue.getCapacity());
-        }
         this.venue = venue;
     }
 }
