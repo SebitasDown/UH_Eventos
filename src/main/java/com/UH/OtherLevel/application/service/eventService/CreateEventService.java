@@ -9,11 +9,15 @@ import com.UH.OtherLevel.application.port.out.VenueRepositoryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-@Service
-@RequiredArgsConstructor
+
 public class CreateEventService implements CreateEventUseCase {
     private final EventRepositoryPort eventRepositoryPort;
     private final VenueRepositoryPort venueRepositoryPort;
+
+    public CreateEventService(EventRepositoryPort eventRepositoryPort, VenueRepositoryPort venueRepositoryPort) {
+        this.eventRepositoryPort = eventRepositoryPort;
+        this.venueRepositoryPort = venueRepositoryPort;
+    }
 
     @Override
     public Event createEvent(Event event) {

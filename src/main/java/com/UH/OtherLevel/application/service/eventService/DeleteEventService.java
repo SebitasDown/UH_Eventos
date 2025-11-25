@@ -6,11 +6,13 @@ import com.UH.OtherLevel.application.port.out.EventRepositoryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-@Service
-@RequiredArgsConstructor
+
 public class DeleteEventService implements DeleteEventUseCase {
     private final EventRepositoryPort eventRepositoryPort;
 
+    public DeleteEventService(EventRepositoryPort eventRepositoryPort) {
+        this.eventRepositoryPort = eventRepositoryPort;
+    }
 
     @Override
     public boolean deleteById(Long id) {

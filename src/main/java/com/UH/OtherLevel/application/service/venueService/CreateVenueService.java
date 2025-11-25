@@ -6,10 +6,14 @@ import com.UH.OtherLevel.application.port.out.VenueRepositoryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-@Service
-@RequiredArgsConstructor
+
 public class CreateVenueService implements CreateVenueUseCase {
     private final VenueRepositoryPort venueRepositoryPort;
+
+    public CreateVenueService(VenueRepositoryPort venueRepositoryPort) {
+        this.venueRepositoryPort = venueRepositoryPort;
+    }
+
     @Override
     public Venue create(Venue venue) {
         if (venue == null) {

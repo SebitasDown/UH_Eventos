@@ -7,10 +7,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
-@RequiredArgsConstructor
+
 public class GetAllEventsService implements GetAllEventsUseCase {
    private final EventRepositoryPort eventRepositoryPort;
+
+    public GetAllEventsService(EventRepositoryPort eventRepositoryPort) {
+        this.eventRepositoryPort = eventRepositoryPort;
+    }
 
     @Override
     public List<Event> getEventAll() {

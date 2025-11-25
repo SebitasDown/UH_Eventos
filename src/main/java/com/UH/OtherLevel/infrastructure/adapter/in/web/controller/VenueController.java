@@ -1,5 +1,6 @@
 package com.UH.OtherLevel.infrastructure.adapter.in.web.controller;
 
+import com.UH.OtherLevel.application.port.in.venueIn.*;
 import com.UH.OtherLevel.application.service.venueService.*;
 import com.UH.OtherLevel.domain.model.Venue;
 import com.UH.OtherLevel.infrastructure.adapter.in.web.dto.request.event.UpdateEventRequest;
@@ -18,28 +19,28 @@ import java.util.List;
 @RequestMapping("/venues")
 public class VenueController {
 
-    private final CreateVenueService createVenueService;
-    private final DeleteVenueService deleteVenueService;
-    private final FindVenueByIdService findVenueByIdService;
-    private final GetAllVenueService getAllVenueService;
-    private final UpdateVenueService updateVenueService;
+    private final CreateVenueUseCase createVenue;
+    private final DeleteVenueUseCase deleteVenue;
+    private final FindVenueByIdUseCase findVenueById;
+    private final GetAllVenueUseCase getAllVenue;
+    private final UpdateVenueUseCase updateVenue;
     private final VanueMapper vanueMapper;
 
     @PostMapping
     public ResponseEntity<VenueResponse> create (@RequestBody CreateVenueRequest request){
-        Venue saved = createVenueService.create(vanueMapper.toModel(request));
+        Venue saved = createVenue.create(vanueMapper.toModel(request));
         return ResponseEntity.ok(vanueMapper.toResponse(saved));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<VenueResponse> findById (@PathVariable Long id){
-        Venue venue = findVenueByIdService.findById(id);
+        Venue venue = findVenueById.findById(id);
         return ResponseEntity.ok(vanueMapper.toResponse(venue));
     }
 
     @GetMapping
     public ResponseEntity<List<VenueResponse>> getAll(){
-        List<Venue> venues = getAllVenueService.getAll();
+        List<Venue> venues = getAllVenue.getAll();
         return ResponseEntity.ok(vanueMapper.toResponseList(venues));
     }
 
@@ -49,13 +50,13 @@ public class VenueController {
             @RequestBody UpdateVenueRequest request) {
 
         Venue venueToUpdate = vanueMapper.toUpdateModel(request); // convierte DTO a modelo
-        Venue updated = updateVenueService.update(id, venueToUpdate); // pasa id y modelo
+        Venue updated = updateVenue.update(id, venueToUpdate); // pasa id y modelo
         return ResponseEntity.ok(vanueMapper.toResponse(updated));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        boolean deleted = deleteVenueService.deleteById(id);
+        boolean deleted = deleteVenue.deleteById(id);
 
         if (!deleted) {
             return ResponseEntity.notFound().build();

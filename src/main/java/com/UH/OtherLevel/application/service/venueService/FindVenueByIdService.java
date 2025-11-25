@@ -7,10 +7,14 @@ import com.UH.OtherLevel.application.port.out.VenueRepositoryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-@Service
-@RequiredArgsConstructor
+
 public class FindVenueByIdService implements FindVenueByIdUseCase {
    private final VenueRepositoryPort venueRepositoryPort;
+
+    public FindVenueByIdService(VenueRepositoryPort venueRepositoryPort) {
+        this.venueRepositoryPort = venueRepositoryPort;
+    }
+
     @Override
     public Venue findById(Long id) {
         return venueRepositoryPort.findById(id)

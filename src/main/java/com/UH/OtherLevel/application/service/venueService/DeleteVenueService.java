@@ -6,10 +6,14 @@ import com.UH.OtherLevel.application.port.out.VenueRepositoryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-@Service
-@RequiredArgsConstructor
+
 public class DeleteVenueService implements DeleteVenueUseCase {
     private final VenueRepositoryPort venueRepositoryPort;
+
+    public DeleteVenueService(VenueRepositoryPort venueRepositoryPort) {
+        this.venueRepositoryPort = venueRepositoryPort;
+    }
+
     @Override
     public boolean deleteById(Long id) {
 

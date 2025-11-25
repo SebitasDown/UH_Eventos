@@ -8,10 +8,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-@RequiredArgsConstructor
+
 public class GetAllVenueService implements GetAllVenueUseCase {
    private final VenueRepositoryPort venueRepositoryPort;
+
+    public GetAllVenueService(VenueRepositoryPort venueRepositoryPort) {
+        this.venueRepositoryPort = venueRepositoryPort;
+    }
+
     @Override
     public List<Venue> getAll() {
         return venueRepositoryPort.findAll();
