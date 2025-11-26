@@ -306,3 +306,27 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: /home/sebitaslov
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 137 more
+2025-11-26 13:45:09.875859-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "VENUE_ENTITY" no encontrada
+Table "VENUE_ENTITY" not found; SQL statement:
+insert into venue_entity (address,capacity,name,id) values (?,?,?,default) [42102-232]
+2025-11-26 13:45:12.724867-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "VENUE_ENTITY" no encontrada
+Table "VENUE_ENTITY" not found; SQL statement:
+insert into venue_entity (address,capacity,name,id) values (?,?,?,default) [42102-232]
+2025-11-26 13:45:13.220435-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "VENUE_ENTITY" no encontrada
+Table "VENUE_ENTITY" not found; SQL statement:
+insert into venue_entity (address,capacity,name,id) values (?,?,?,default) [42102-232]
+2025-11-26 13:45:25.177994-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "VENUE_ENTITY" no encontrada
+Table "VENUE_ENTITY" not found; SQL statement:
+select ve1_0.id,ve1_0.address,ve1_0.capacity,ve1_0.name from venue_entity ve1_0 [42102-232]
+2025-11-26 13:47:04.862195-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "VENUE_ENTITY" no encontrada
+Table "VENUE_ENTITY" not found; SQL statement:
+insert into venue_entity (address,capacity,name,id) values (?,?,?,default) [42102-232]
+2025-11-26 13:47:15.492376-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "VENUE_ENTITY" no encontrada
+Table "VENUE_ENTITY" not found; SQL statement:
+select ve1_0.id,ve1_0.address,ve1_0.capacity,ve1_0.name from venue_entity ve1_0 where ve1_0.id=? [42102-232]

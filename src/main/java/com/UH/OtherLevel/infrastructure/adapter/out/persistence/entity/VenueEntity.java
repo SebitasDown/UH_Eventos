@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -28,7 +29,7 @@ public class VenueEntity {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private List<EventEntity> events;
+    private List<EventEntity> events = new ArrayList<>();
 
 
     //Helpers
