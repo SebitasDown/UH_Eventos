@@ -1,6 +1,7 @@
 package com.UH.OtherLevel.application.port.out;
 
 import com.UH.OtherLevel.domain.model.Event;
+import com.UH.OtherLevel.domain.model.SearchEvent;
 import com.UH.OtherLevel.domain.pageable.PageRequest;
 import com.UH.OtherLevel.domain.pageable.PageResult;
 
@@ -13,4 +14,5 @@ public interface EventRepositoryPort {
     List<Event> findAll();
     boolean deleteById(Long id);
     PageResult<Event> findAllPage(PageRequest pageRequest);
+    List<Event> searchEvents(SearchEvent searchEvent);
 }

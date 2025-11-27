@@ -2,8 +2,10 @@ package com.UH.OtherLevel.infrastructure.adapter.in.web.mapper;
 
 
 import com.UH.OtherLevel.domain.model.Event;
+import com.UH.OtherLevel.domain.model.SearchEvent;
 import com.UH.OtherLevel.domain.model.Venue;
 import com.UH.OtherLevel.infrastructure.adapter.in.web.dto.request.event.CreateEventRequest;
+import com.UH.OtherLevel.infrastructure.adapter.in.web.dto.request.event.SearchEventsCriteria;
 import com.UH.OtherLevel.infrastructure.adapter.in.web.dto.request.event.UpdateEventRequest;
 import com.UH.OtherLevel.infrastructure.adapter.in.web.dto.response.event.EventResponse;
 import org.mapstruct.Mapper;
@@ -22,6 +24,11 @@ public interface EventMapper {
 
     @Mapping(target = "venue", source = "venueId", qualifiedByName = "idToVenue")
     Event toUpdateModel(UpdateEventRequest request);
+
+    @Mapping(target = "venueId", source = "venueId")
+    @Mapping(target = "dateFrom", source = "dateFrom")
+    @Mapping(target = "nameContains", source = "nameContains")
+    SearchEvent toModel(SearchEventsCriteria criteria);
 
     @Mapping(target = "venueId", source = "venue.id")
     EventResponse toResponse(Event event);

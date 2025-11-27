@@ -65,4 +65,9 @@ public class ApplicationConfig {
     public UpdateVenueUseCase updateVenueUseCase(VenueRepositoryPort venueRepositoryPort) {
         return new UpdateVenueService(venueRepositoryPort);
     }
+
+    @Bean
+    public SearchEventUseCase searchEventUseCase(EventRepositoryPort eventRepositoryPort){
+        return new SearchEventsService(eventRepositoryPort);
+    }
 }
