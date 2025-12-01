@@ -1,0 +1,92 @@
+2025-12-01 10:39:02.978 [main] [traceId=NO_TRACE] INFO  c.U.OtherLevel.OtherLevelApplication - Starting OtherLevelApplication using Java 21.0.9 with PID 14022 (/home/sebitaslovelace/Escritorio/UH_Eventos/target/classes started by sebitaslovelace in /home/sebitaslovelace/Escritorio/UH_Eventos)
+2025-12-01 10:39:02.979 [main] [traceId=NO_TRACE] INFO  c.U.OtherLevel.OtherLevelApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-01 10:39:03.835 [main] [traceId=NO_TRACE] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-01 10:39:03.837 [main] [traceId=NO_TRACE] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-01 10:39:03.837 [main] [traceId=NO_TRACE] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-12-01 10:39:03.863 [main] [traceId=NO_TRACE] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-01 10:39:04.019 [main] [traceId=NO_TRACE] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-12-01 10:39:04.153 [main] [traceId=NO_TRACE] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/mi_db user=SA
+2025-12-01 10:39:04.155 [main] [traceId=NO_TRACE] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-12-01 10:39:04.183 [main] [traceId=NO_TRACE] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:h2:file:./data/mi_db (H2 2.3)
+2025-12-01 10:39:04.208 [main] [traceId=NO_TRACE] INFO  o.f.core.internal.command.DbValidate - Successfully validated 3 migrations (execution time 00:00.015s)
+2025-12-01 10:39:04.214 [main] [traceId=NO_TRACE] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "PUBLIC": 3
+2025-12-01 10:39:04.216 [main] [traceId=NO_TRACE] INFO  o.f.core.internal.command.DbMigrate - Schema "PUBLIC" is up to date. No migration necessary.
+2025-12-01 10:39:05.104 [main] [traceId=NO_TRACE] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-01 10:39:05.359 [main] [traceId=NO_TRACE] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-12-01 10:39:05.380 [main] [traceId=NO_TRACE] INFO  c.U.OtherLevel.OtherLevelApplication - Started OtherLevelApplication in 2.784 seconds (process running for 3.002)
+2025-12-01 10:39:05.385 [main] [traceId=NO_TRACE] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2025-12-01 10:39:05.385 [main] [traceId=NO_TRACE] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2025-12-01 10:39:20.797 [SpringApplicationShutdownHook] [traceId=NO_TRACE] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-12-01 10:39:20.799 [SpringApplicationShutdownHook] [traceId=NO_TRACE] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-12-01 11:46:21.489 [main] [traceId=NO_TRACE] INFO  c.U.OtherLevel.OtherLevelApplication - Starting OtherLevelApplication using Java 21.0.9 with PID 34623 (/home/sebitaslovelace/Escritorio/UH_Eventos/target/classes started by sebitaslovelace in /home/sebitaslovelace/Escritorio/UH_Eventos)
+2025-12-01 11:46:21.492 [main] [traceId=NO_TRACE] INFO  c.U.OtherLevel.OtherLevelApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-01 11:46:23.010 [main] [traceId=NO_TRACE] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-01 11:46:23.012 [main] [traceId=NO_TRACE] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-01 11:46:23.012 [main] [traceId=NO_TRACE] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-12-01 11:46:23.075 [main] [traceId=NO_TRACE] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-01 11:46:23.328 [main] [traceId=NO_TRACE] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-12-01 11:46:23.590 [main] [traceId=NO_TRACE] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/mi_db user=SA
+2025-12-01 11:46:23.592 [main] [traceId=NO_TRACE] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-12-01 11:46:23.652 [main] [traceId=NO_TRACE] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:h2:file:./data/mi_db (H2 2.3)
+2025-12-01 11:46:23.712 [main] [traceId=NO_TRACE] INFO  o.f.core.internal.command.DbValidate - Successfully validated 3 migrations (execution time 00:00.041s)
+2025-12-01 11:46:23.735 [main] [traceId=NO_TRACE] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "PUBLIC": 3
+2025-12-01 11:46:23.742 [main] [traceId=NO_TRACE] INFO  o.f.core.internal.command.DbMigrate - Schema "PUBLIC" is up to date. No migration necessary.
+2025-12-01 11:46:25.431 [main] [traceId=NO_TRACE] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'eventController' defined in file [/home/sebitaslovelace/Escritorio/UH_Eventos/target/classes/com/UH/OtherLevel/infrastructure/adapter/in/web/controller/EventController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'createEventUseCase' defined in class path resource [com/UH/OtherLevel/infrastructure/adapter/config/ApplicationConfig.class]: Unsatisfied dependency expressed through method 'createEventUseCase' parameter 0: Error creating bean with name 'eventRepositoryAdapter' defined in file [/home/sebitaslovelace/Escritorio/UH_Eventos/target/classes/com/UH/OtherLevel/infrastructure/adapter/out/persistence/adapter/EventRepositoryAdapter.class]: Unsatisfied dependency expressed through constructor parameter 1: No qualifying bean of type 'com.UH.OtherLevel.infrastructure.adapter.out.persistence.mapper.EventEntityMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-12-01 11:46:25.434 [main] [traceId=NO_TRACE] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-12-01 11:46:25.494 [main] [traceId=NO_TRACE] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-12-01 11:46:25.513 [main] [traceId=NO_TRACE] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-12-01 11:46:25.645 [main] [traceId=NO_TRACE] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of constructor in com.UH.OtherLevel.infrastructure.adapter.out.persistence.adapter.EventRepositoryAdapter required a bean of type 'com.UH.OtherLevel.infrastructure.adapter.out.persistence.mapper.EventEntityMapper' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.UH.OtherLevel.infrastructure.adapter.out.persistence.mapper.EventEntityMapper' in your configuration.
+
+2025-12-01 11:50:57.968 [main] [traceId=NO_TRACE] INFO  c.U.OtherLevel.OtherLevelApplication - Starting OtherLevelApplication using Java 21.0.9 with PID 37525 (/home/sebitaslovelace/Escritorio/UH_Eventos/target/classes started by sebitaslovelace in /home/sebitaslovelace/Escritorio/UH_Eventos)
+2025-12-01 11:50:57.970 [main] [traceId=NO_TRACE] INFO  c.U.OtherLevel.OtherLevelApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-01 11:50:59.328 [main] [traceId=NO_TRACE] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-01 11:50:59.330 [main] [traceId=NO_TRACE] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-01 11:50:59.331 [main] [traceId=NO_TRACE] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-12-01 11:50:59.385 [main] [traceId=NO_TRACE] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-01 11:50:59.648 [main] [traceId=NO_TRACE] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-12-01 11:50:59.872 [main] [traceId=NO_TRACE] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/mi_db user=SA
+2025-12-01 11:50:59.873 [main] [traceId=NO_TRACE] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-12-01 11:50:59.931 [main] [traceId=NO_TRACE] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:h2:file:./data/mi_db (H2 2.3)
+2025-12-01 11:50:59.989 [main] [traceId=NO_TRACE] INFO  o.f.core.internal.command.DbValidate - Successfully validated 3 migrations (execution time 00:00.037s)
+2025-12-01 11:51:00.000 [main] [traceId=NO_TRACE] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "PUBLIC": 3
+2025-12-01 11:51:00.006 [main] [traceId=NO_TRACE] INFO  o.f.core.internal.command.DbMigrate - Schema "PUBLIC" is up to date. No migration necessary.
+2025-12-01 11:51:01.714 [main] [traceId=NO_TRACE] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-01 11:51:02.159 [main] [traceId=NO_TRACE] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-12-01 11:51:02.201 [main] [traceId=NO_TRACE] INFO  c.U.OtherLevel.OtherLevelApplication - Started OtherLevelApplication in 5.124 seconds (process running for 6.373)
+2025-12-01 11:51:02.207 [main] [traceId=NO_TRACE] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2025-12-01 11:51:02.207 [main] [traceId=NO_TRACE] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2025-12-01 11:52:04.276 [SpringApplicationShutdownHook] [traceId=NO_TRACE] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-12-01 11:52:04.279 [SpringApplicationShutdownHook] [traceId=NO_TRACE] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-12-01 11:52:20.903 [main] [traceId=NO_TRACE] INFO  c.U.OtherLevel.OtherLevelApplication - Starting OtherLevelApplication using Java 21.0.9 with PID 38116 (/home/sebitaslovelace/Escritorio/UH_Eventos/target/classes started by sebitaslovelace in /home/sebitaslovelace/Escritorio/UH_Eventos)
+2025-12-01 11:52:20.910 [main] [traceId=NO_TRACE] INFO  c.U.OtherLevel.OtherLevelApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-01 11:52:23.082 [main] [traceId=NO_TRACE] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-01 11:52:23.085 [main] [traceId=NO_TRACE] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-01 11:52:23.086 [main] [traceId=NO_TRACE] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-12-01 11:52:23.151 [main] [traceId=NO_TRACE] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-01 11:52:23.555 [main] [traceId=NO_TRACE] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-12-01 11:52:23.819 [main] [traceId=NO_TRACE] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/mi_db user=SA
+2025-12-01 11:52:23.821 [main] [traceId=NO_TRACE] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-12-01 11:52:23.879 [main] [traceId=NO_TRACE] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:h2:file:./data/mi_db (H2 2.3)
+2025-12-01 11:52:23.931 [main] [traceId=NO_TRACE] INFO  o.f.core.internal.command.DbValidate - Successfully validated 3 migrations (execution time 00:00.031s)
+2025-12-01 11:52:23.942 [main] [traceId=NO_TRACE] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "PUBLIC": 3
+2025-12-01 11:52:23.950 [main] [traceId=NO_TRACE] INFO  o.f.core.internal.command.DbMigrate - Schema "PUBLIC" is up to date. No migration necessary.
+2025-12-01 11:52:25.890 [main] [traceId=NO_TRACE] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-01 11:52:26.561 [main] [traceId=NO_TRACE] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-12-01 11:52:26.606 [main] [traceId=NO_TRACE] INFO  c.U.OtherLevel.OtherLevelApplication - Started OtherLevelApplication in 6.619 seconds (process running for 7.239)
+2025-12-01 11:52:26.612 [main] [traceId=NO_TRACE] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2025-12-01 11:52:26.613 [main] [traceId=NO_TRACE] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2025-12-01 11:56:44.549 [SpringApplicationShutdownHook] [traceId=NO_TRACE] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-12-01 11:56:44.554 [SpringApplicationShutdownHook] [traceId=NO_TRACE] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

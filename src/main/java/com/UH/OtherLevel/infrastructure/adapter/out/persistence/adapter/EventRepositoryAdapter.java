@@ -1,7 +1,5 @@
 package com.UH.OtherLevel.infrastructure.adapter.out.persistence.adapter;
 
-
-
 import com.UH.OtherLevel.application.port.out.EventRepositoryPort;
 import com.UH.OtherLevel.domain.model.Event;
 import com.UH.OtherLevel.domain.model.SearchEvent;
@@ -18,6 +16,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
+
 @Slf4j
 @Component
 @RequiredArgsConstructor
@@ -25,7 +24,6 @@ public class EventRepositoryAdapter implements EventRepositoryPort {
 
     private final JpaEventRepository eventRepository;
     private final EventEntityMapper eventEntityMapper;
-
 
     @Override
     public Event save(Event event) {
@@ -38,19 +36,28 @@ public class EventRepositoryAdapter implements EventRepositoryPort {
 
     @Override
     public Optional<Event> findById(Long id) {
+        log.info("DB_FIND_EVENT_BY_ID id={}", id);
         return eventRepository.findById(id)
                 .map(eventEntityMapper::toModel);
     }
 
     @Override
     public List<Event> findAll() {
-        return eventEntityMapper.toModelList(eventRepository.findAll());
+        log.info("DB_FIND_ALL_EVENTS");
+        List<EventEntity> entities = eventRepository.findAll();
+        log.info("DB_FIND_ALL_EVENTS_SUCCESS count={}", entities.size());
+        return eventEntityMapper.toModelList(entities);
     }
 
     @Override
     public boolean deleteById(Long id) {
-        if (!eventRepository.existsById(id)) return false;
+        log.info("DB_DELETE_EVENT_BY_ID id={}", id);
+        if (!eventRepository.existsById(id)) {
+            log.warn("DB_DELETE_EVENT_NOT_FOUND id={}", id);
+            return false;
+        }
         eventRepository.deleteById(id);
+        log.info("DB_DELETE_EVENT_SUCCESS id={}", id);
         return true;
     }
 
@@ -61,6 +68,8 @@ public class EventRepositoryAdapter implements EventRepositoryPort {
 
     @Override
     public List<Event> searchEvents(SearchEvent searchEvent) {
+        log.info("DB_SEARCH_EVENTS venueId={} dateFrom={} name={}", searchEvent.getVenueId(), searchEvent.getDateFrom(),
+                searchEvent.getNameContains());
         Specification<EventEntity> spec = (root, query, cb) -> cb.conjunction();
 
         if (searchEvent.getVenueId() != null) {
@@ -74,6 +83,7 @@ public class EventRepositoryAdapter implements EventRepositoryPort {
         }
 
         List<EventEntity> entities = eventRepository.findAll(spec);
+        log.info("DB_SEARCH_EVENTS_SUCCESS count={}", entities.size());
         return eventEntityMapper.toModelList(entities);
     }
 }
