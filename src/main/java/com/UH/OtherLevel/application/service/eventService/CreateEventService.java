@@ -7,9 +7,11 @@ import com.UH.OtherLevel.application.port.in.eventIn.CreateEventUseCase;
 import com.UH.OtherLevel.application.port.out.EventRepositoryPort;
 import com.UH.OtherLevel.application.port.out.VenueRepositoryPort;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 
+@Slf4j
 public class CreateEventService implements CreateEventUseCase {
     private final EventRepositoryPort eventRepositoryPort;
     private final VenueRepositoryPort venueRepositoryPort;
@@ -34,6 +36,7 @@ public class CreateEventService implements CreateEventUseCase {
                 .orElseThrow(() -> new VenueNotFoundException(venueId));
         event.setVenue(venue);
 
+        log.info("USECASE_EVENT_CREATE name={}",event.getName());
         return eventRepositoryPort.save(event);
     }
 }

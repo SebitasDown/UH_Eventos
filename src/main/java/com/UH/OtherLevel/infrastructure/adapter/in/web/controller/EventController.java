@@ -11,6 +11,7 @@ import com.UH.OtherLevel.infrastructure.adapter.in.web.mapper.EventMapper;
 import com.UH.OtherLevel.infrastructure.adapter.out.persistence.adapter.config.TransactionalUseCaseExecutor;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/events")
@@ -35,9 +37,11 @@ public class EventController {
 
     @PostMapping
     public ResponseEntity<EventResponse> create(@Valid @RequestBody CreateEventRequest request) {
+        log.info("EVENT_CRATE_REQUEST name={}", request.getName());
         Event saved = transactionalUseCaseExecutor.executeInTransaction(() ->
                 createEventUseCase.createEvent(eventMapper.toModel(request))
         );
+        log.info("EVENT_CREATE_SUCCESS id={}", saved.getId());
         return ResponseEntity.status(HttpStatus.CREATED).body(eventMapper.toResponse(saved));
     }
 

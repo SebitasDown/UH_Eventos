@@ -12,11 +12,13 @@ import com.UH.OtherLevel.infrastructure.adapter.out.persistence.especification.E
 import com.UH.OtherLevel.infrastructure.adapter.out.persistence.mapper.EventEntityMapper;
 import com.UH.OtherLevel.infrastructure.adapter.out.persistence.repository.JpaEventRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class EventRepositoryAdapter implements EventRepositoryPort {
@@ -27,8 +29,10 @@ public class EventRepositoryAdapter implements EventRepositoryPort {
 
     @Override
     public Event save(Event event) {
+        log.info("DB_SAVE_EVENT name={}", event.getName());
         EventEntity entity = eventEntityMapper.toEntity(event);
         EventEntity saved = eventRepository.save(entity);
+        log.info("DB_SAVE_EVENT_SUCCESS id={}", saved.getId());
         return eventEntityMapper.toModel(saved);
     }
 
