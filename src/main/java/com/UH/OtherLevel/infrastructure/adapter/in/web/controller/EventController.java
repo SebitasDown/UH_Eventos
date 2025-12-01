@@ -9,9 +9,10 @@ import com.UH.OtherLevel.infrastructure.adapter.in.web.dto.request.event.UpdateE
 import com.UH.OtherLevel.infrastructure.adapter.in.web.dto.response.event.EventResponse;
 import com.UH.OtherLevel.infrastructure.adapter.in.web.mapper.EventMapper;
 import com.UH.OtherLevel.infrastructure.adapter.out.persistence.adapter.config.TransactionalUseCaseExecutor;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Response;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,63 +31,55 @@ public class EventController {
     private final UpdateEventUseCase updateEventUseCase;
     private final SearchEventUseCase searchEventUseCase;
     private final TransactionalUseCaseExecutor transactionalUseCaseExecutor;
-
     private final EventMapper eventMapper;
 
-    // Este metodo ya tiene para hacer rollbacks
     @PostMapping
-    public ResponseEntity<EventResponse> create (@RequestBody CreateEventRequest request){
+    public ResponseEntity<EventResponse> create(@Valid @RequestBody CreateEventRequest request) {
         Event saved = transactionalUseCaseExecutor.executeInTransaction(() ->
                 createEventUseCase.createEvent(eventMapper.toModel(request))
         );
-        return ResponseEntity.ok(eventMapper.toResponse(saved));
+        return ResponseEntity.status(HttpStatus.CREATED).body(eventMapper.toResponse(saved));
     }
 
-    // Este metodo ya tiene para hacer rollbacks
     @GetMapping("/{id}")
-    public ResponseEntity<EventResponse> findById (@PathVariable Long id){
+    public ResponseEntity<EventResponse> findById(@PathVariable Long id) {
         Event event = transactionalUseCaseExecutor.executeReadOnly(() ->
                 findEventByIdUseCase.findById(id)
         );
         return ResponseEntity.ok(eventMapper.toResponse(event));
     }
 
-
-    // Este metodo ya tiene los rollbaks
     @GetMapping
-    public ResponseEntity<List<EventResponse>> getAll(){
+    public ResponseEntity<List<EventResponse>> getAll() {
         List<Event> events = transactionalUseCaseExecutor.executeReadOnly(() ->
                 getAllEventsUseCase.getEventAll()
         );
         return ResponseEntity.ok(eventMapper.toResponseList(events));
     }
 
-    // Este metodo ya tiene los rollbacks
     @PutMapping("/{id}")
     public ResponseEntity<EventResponse> update(
             @PathVariable Long id,
-            @RequestBody UpdateEventRequest request
-            ){
+            @Valid @RequestBody UpdateEventRequest request) {
         Event updated = transactionalUseCaseExecutor.executeInTransaction(() ->
-                updateEventUseCase.update(id ,eventMapper.toUpdateModel(request))
+                updateEventUseCase.update(id, eventMapper.toUpdateModel(request))
         );
         return ResponseEntity.ok(eventMapper.toResponse(updated));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Long id){
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         transactionalUseCaseExecutor.executeInTransactionVoid(() ->
-        deleteEventUseCase.deleteById(id)
-    );
+                deleteEventUseCase.deleteById(id)
+        );
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/search")
     public ResponseEntity<List<EventResponse>> search(
             @RequestParam(required = false) Long venueId,
-            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)LocalDateTime dateFrom,
-            @RequestParam(required = false) String name
-            ){
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dateFrom,
+            @RequestParam(required = false) String name) {
         SearchEventsCriteria criteria = new SearchEventsCriteria(venueId, dateFrom, name);
         SearchEvent searchEvent = eventMapper.toModel(criteria);
         List<Event> events = searchEventUseCase.searchEvents(searchEvent);

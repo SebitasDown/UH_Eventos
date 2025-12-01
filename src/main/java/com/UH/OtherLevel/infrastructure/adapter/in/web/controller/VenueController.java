@@ -1,16 +1,16 @@
 package com.UH.OtherLevel.infrastructure.adapter.in.web.controller;
 
 import com.UH.OtherLevel.application.port.in.venueIn.*;
-import com.UH.OtherLevel.application.service.venueService.*;
 import com.UH.OtherLevel.domain.model.Venue;
-import com.UH.OtherLevel.infrastructure.adapter.in.web.dto.request.event.UpdateEventRequest;
 import com.UH.OtherLevel.infrastructure.adapter.in.web.dto.request.venue.CreateVenueRequest;
 import com.UH.OtherLevel.infrastructure.adapter.in.web.dto.request.venue.UpdateVenueRequest;
 import com.UH.OtherLevel.infrastructure.adapter.in.web.dto.response.venue.VenueResponse;
 import com.UH.OtherLevel.infrastructure.adapter.in.web.mapper.VanueMapper;
 import com.UH.OtherLevel.infrastructure.adapter.out.persistence.adapter.config.TransactionalUseCaseExecutor;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +18,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/venues")
+@Validated
 public class VenueController {
 
     private final CreateVenueUseCase createVenue;
@@ -29,7 +30,7 @@ public class VenueController {
     private final VanueMapper vanueMapper;
 
     @PostMapping
-    public ResponseEntity<VenueResponse> create (@RequestBody CreateVenueRequest request){
+    public ResponseEntity<VenueResponse> create(@Valid @RequestBody CreateVenueRequest request) {
         Venue saved = transactionalUseCaseExecutor.executeInTransaction(() ->
                 createVenue.create(vanueMapper.toModel(request))
         );
@@ -37,7 +38,7 @@ public class VenueController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<VenueResponse> findById (@PathVariable Long id){
+    public ResponseEntity<VenueResponse> findById(@PathVariable Long id) {
         Venue venue = transactionalUseCaseExecutor.executeReadOnly(() ->
                 findVenueById.findById(id)
         );
@@ -45,7 +46,7 @@ public class VenueController {
     }
 
     @GetMapping
-    public ResponseEntity<List<VenueResponse>> getAll(){
+    public ResponseEntity<List<VenueResponse>> getAll() {
         List<Venue> venues = transactionalUseCaseExecutor.executeReadOnly(() ->
                 getAllVenue.getAll()
         );
@@ -55,7 +56,8 @@ public class VenueController {
     @PutMapping("/{id}")
     public ResponseEntity<VenueResponse> update(
             @PathVariable Long id,
-            @RequestBody UpdateVenueRequest request) {
+            @Valid @RequestBody UpdateVenueRequest request) {
+
         Venue updated = transactionalUseCaseExecutor.executeInTransaction(() -> {
             Venue venueToUpdate = vanueMapper.toUpdateModel(request);
             return updateVenue.update(id, venueToUpdate);
