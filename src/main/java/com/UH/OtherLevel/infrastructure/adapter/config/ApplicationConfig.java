@@ -1,9 +1,16 @@
 package com.UH.OtherLevel.infrastructure.adapter.config;
 
+import com.UH.OtherLevel.application.port.in.auth.FindUserUseCase;
+import com.UH.OtherLevel.application.port.in.auth.LoginUserUseCase;
+import com.UH.OtherLevel.application.port.in.auth.RegisterUserUseCase;
 import com.UH.OtherLevel.application.port.in.eventIn.*;
 import com.UH.OtherLevel.application.port.in.venueIn.*;
 import com.UH.OtherLevel.application.port.out.EventRepositoryPort;
+import com.UH.OtherLevel.application.port.out.UserRepositoryPort;
 import com.UH.OtherLevel.application.port.out.VenueRepositoryPort;
+import com.UH.OtherLevel.application.service.auth.FindUserService;
+import com.UH.OtherLevel.application.service.auth.LoginUserService;
+import com.UH.OtherLevel.application.service.auth.RegisterUserService;
 import com.UH.OtherLevel.application.service.eventService.*;
 import com.UH.OtherLevel.application.service.venueService.*;
 import org.springframework.context.annotation.Bean;
@@ -69,5 +76,20 @@ public class ApplicationConfig {
     @Bean
     public SearchEventUseCase searchEventUseCase(EventRepositoryPort eventRepositoryPort){
         return new SearchEventsService(eventRepositoryPort);
+    }
+
+    @Bean
+    public RegisterUserUseCase registerUserUseCase(UserRepositoryPort userRepositoryPort) {
+        return new RegisterUserService(userRepositoryPort);
+    }
+
+    @Bean
+    public LoginUserUseCase loginUserUseCase(UserRepositoryPort userRepositoryPort) {
+        return new LoginUserService(userRepositoryPort);
+    }
+
+    @Bean
+    public FindUserUseCase findUserUseCase(UserRepositoryPort userRepositoryPort) {
+        return new FindUserService(userRepositoryPort);
     }
 }
