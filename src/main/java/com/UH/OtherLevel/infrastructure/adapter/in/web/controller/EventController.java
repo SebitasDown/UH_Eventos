@@ -9,6 +9,7 @@ import com.UH.OtherLevel.infrastructure.adapter.in.web.dto.request.event.UpdateE
 import com.UH.OtherLevel.infrastructure.adapter.in.web.dto.response.event.EventResponse;
 import com.UH.OtherLevel.infrastructure.adapter.in.web.mapper.EventMapper;
 import com.UH.OtherLevel.infrastructure.adapter.out.persistence.adapter.config.TransactionalUseCaseExecutor;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -36,6 +37,7 @@ public class EventController {
     private final EventMapper eventMapper;
 
     @PostMapping
+    @SecurityRequirement(name = "BearerAuth")
     public ResponseEntity<EventResponse> create(@Valid @RequestBody CreateEventRequest request) {
         log.info("EVENT_CREATE_REQUEST name={}", request.getName());
         Event saved = transactionalUseCaseExecutor
