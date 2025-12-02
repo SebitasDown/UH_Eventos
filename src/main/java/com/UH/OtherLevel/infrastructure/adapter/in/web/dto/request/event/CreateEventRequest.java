@@ -1,10 +1,12 @@
 package com.UH.OtherLevel.infrastructure.adapter.in.web.dto.request.event;
 
+import com.UH.OtherLevel.infrastructure.adapter.in.web.validation.ValidEventDates;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
+@ValidEventDates(groups = {ValidationGroups.Create.class})
 @Data
 public class CreateEventRequest {
         @NotBlank(message = "{event.name.notblank}", groups = ValidationGroups.Create.class)

@@ -1,10 +1,12 @@
 package com.UH.OtherLevel.infrastructure.adapter.in.web.dto.request.event;
 
+import com.UH.OtherLevel.infrastructure.adapter.in.web.validation.ValidEventDates;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
+@ValidEventDates(groups = {ValidationGroups.Update.class})
 @Data
 public class UpdateEventRequest {
 

@@ -4,9 +4,9 @@
     <property name="LOG_PATH" value="./logs"/>
     <property name="LOG_FILE" value="otherlevel"/>
 
-    <!-- Formato del log con traceId -->
+    <!-- Formato del log estructurado con traceId, endpoint, nivel y timestamp -->
     <property name="LOG_PATTERN"
-              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [traceId=%X{traceId:-NO_TRACE}] %-5level %logger{36} - %msg%n"/>
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [traceId=%X{traceId:-NO_TRACE}] [endpoint=%X{endpoint:-N/A}] %-5level %logger{36} - %msg%n"/>
 
     <!-- Consola -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
