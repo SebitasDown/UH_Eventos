@@ -1,4 +1,5 @@
-package com.UH.OtherLevel.infrastructure.adapter.segurity.config;
+package com.UH.OtherLevel.infrastructure.adapter.security.config;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,7 +13,6 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
-
 
 @Slf4j
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
@@ -38,3 +38,4 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
         mapper.writeValue(response.getOutputStream(), body);
     }
 }
+

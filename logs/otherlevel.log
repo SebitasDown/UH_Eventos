@@ -1724,3 +1724,28 @@ java.lang.IllegalArgumentException: User not found: anonymousUser
 2025-12-02 09:44:44.410 [http-nio-8080-exec-9] [traceId=a1fb5934-e6ae-43b6-84d7-c1190da4e95f] [endpoint=GET /v3/api-docs] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 426 ms
 2025-12-02 09:46:42.763 [SpringApplicationShutdownHook] [traceId=NO_TRACE] [endpoint=N/A] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-12-02 09:46:42.768 [SpringApplicationShutdownHook] [traceId=NO_TRACE] [endpoint=N/A] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-12-02 22:04:19.343 [main] [traceId=NO_TRACE] [endpoint=N/A] INFO  c.U.OtherLevel.OtherLevelApplication - Starting OtherLevelApplication using Java 21.0.8 with PID 24680 (/home/sebas/Escritorio/UH_Eventos/target/classes started by sebas in /home/sebas/Escritorio/UH_Eventos)
+2025-12-02 22:04:19.344 [main] [traceId=NO_TRACE] [endpoint=N/A] INFO  c.U.OtherLevel.OtherLevelApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-02 22:04:20.636 [main] [traceId=NO_TRACE] [endpoint=N/A] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-02 22:04:20.638 [main] [traceId=NO_TRACE] [endpoint=N/A] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-02 22:04:20.638 [main] [traceId=NO_TRACE] [endpoint=N/A] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-12-02 22:04:20.674 [main] [traceId=NO_TRACE] [endpoint=N/A] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-02 22:04:20.937 [main] [traceId=NO_TRACE] [endpoint=N/A] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-12-02 22:04:21.092 [main] [traceId=NO_TRACE] [endpoint=N/A] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/mi_db user=SA
+2025-12-02 22:04:21.094 [main] [traceId=NO_TRACE] [endpoint=N/A] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-12-02 22:04:21.130 [main] [traceId=NO_TRACE] [endpoint=N/A] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:h2:file:./data/mi_db (H2 2.3)
+2025-12-02 22:04:21.164 [main] [traceId=NO_TRACE] [endpoint=N/A] INFO  o.f.core.internal.command.DbValidate - Successfully validated 4 migrations (execution time 00:00.021s)
+2025-12-02 22:04:21.173 [main] [traceId=NO_TRACE] [endpoint=N/A] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "PUBLIC": 4
+2025-12-02 22:04:21.176 [main] [traceId=NO_TRACE] [endpoint=N/A] INFO  o.f.core.internal.command.DbMigrate - Schema "PUBLIC" is up to date. No migration necessary.
+2025-12-02 22:04:22.222 [main] [traceId=NO_TRACE] [endpoint=N/A] DEBUG o.h.s.internal.StatisticsInitiator - Statistics initialized [enabled=true]
+2025-12-02 22:04:22.510 [main] [traceId=NO_TRACE] [endpoint=N/A] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-02 22:04:23.178 [main] [traceId=NO_TRACE] [endpoint=N/A] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-12-02 22:04:23.198 [main] [traceId=NO_TRACE] [endpoint=N/A] INFO  c.U.OtherLevel.OtherLevelApplication - Started OtherLevelApplication in 4.287 seconds (process running for 4.531)
+2025-12-02 22:04:23.270 [main] [traceId=NO_TRACE] [endpoint=N/A] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2025-12-02 22:04:23.270 [main] [traceId=NO_TRACE] [endpoint=N/A] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2025-12-02 22:04:33.327 [http-nio-8080-exec-1] [traceId=NO_TRACE] [endpoint=N/A] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-02 22:04:33.667 [http-nio-8080-exec-4] [traceId=9c04d1e7-7607-4b64-90fb-7375e9e12e10] [endpoint=GET /v3/api-docs] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 193 ms
+2025-12-02 22:05:00.250 [http-nio-8080-exec-5] [traceId=6e0ed209-6540-42d8-8dba-4e8af4bde818] [endpoint=POST /auth/login] INFO  c.U.O.i.a.i.w.c.AuthController - AUTH_LOGIN_REQUEST username=Susi
+2025-12-02 22:05:00.254 [http-nio-8080-exec-5] [traceId=6e0ed209-6540-42d8-8dba-4e8af4bde818] [endpoint=POST /auth/login] INFO  c.U.O.i.a.o.p.a.UserRepositoryAdapter - DB_FIND_USER_BY_USERNAME username=Susi
+2025-12-02 22:05:00.334 [http-nio-8080-exec-5] [traceId=6e0ed209-6540-42d8-8dba-4e8af4bde818] [endpoint=POST /auth/login] DEBUG o.h.stat.internal.StatisticsImpl - HHH000117: HQL: [CRITERIA] select ue1_0.id,ue1_0.email,ue1_0.password,ue1_0.username from users ue1_0 where ue1_0.username=?, time: 20ms, rows: 1
+2025-12-02 22:05:00.443 [http-nio-8080-exec-5] [traceId=6e0ed209-6540-42d8-8dba-4e8af4bde818] [endpoint=POST /auth/login] INFO  c.U.O.i.a.i.w.c.AuthController - AUTH_LOGIN_SUCCESS username=Susi id=3

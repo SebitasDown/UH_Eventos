@@ -6,6 +6,8 @@ import com.UH.OtherLevel.application.port.in.auth.RegisterUserUseCase;
 import com.UH.OtherLevel.application.port.in.eventIn.*;
 import com.UH.OtherLevel.application.port.in.venueIn.*;
 import com.UH.OtherLevel.application.port.out.EventRepositoryPort;
+import com.UH.OtherLevel.application.port.out.JwtTokenPort;
+import com.UH.OtherLevel.application.port.out.PasswordPort;
 import com.UH.OtherLevel.application.port.out.UserRepositoryPort;
 import com.UH.OtherLevel.application.port.out.VenueRepositoryPort;
 import com.UH.OtherLevel.application.service.auth.FindUserService;
@@ -79,13 +81,18 @@ public class ApplicationConfig {
     }
 
     @Bean
-    public RegisterUserUseCase registerUserUseCase(UserRepositoryPort userRepositoryPort) {
-        return new RegisterUserService(userRepositoryPort);
+    public RegisterUserUseCase registerUserUseCase(
+            UserRepositoryPort userRepositoryPort,
+            PasswordPort passwordPort) {
+        return new RegisterUserService(userRepositoryPort, passwordPort);
     }
 
     @Bean
-    public LoginUserUseCase loginUserUseCase(UserRepositoryPort userRepositoryPort) {
-        return new LoginUserService(userRepositoryPort);
+    public LoginUserUseCase loginUserUseCase(
+            UserRepositoryPort userRepositoryPort,
+            JwtTokenPort jwtTokenPort,
+            PasswordPort passwordPort) {
+        return new LoginUserService(userRepositoryPort, jwtTokenPort, passwordPort);
     }
 
     @Bean

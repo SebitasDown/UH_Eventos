@@ -1,7 +1,7 @@
 package com.UH.OtherLevel.application.port.in.auth;
 
-import com.UH.OtherLevel.domain.model.User;
+import com.UH.OtherLevel.application.service.auth.LoginResult;
 
 public interface LoginUserUseCase {
-    User authenticate(String username, String rawPassword);
+    LoginResult authenticate(String username, String rawPassword);
 }
